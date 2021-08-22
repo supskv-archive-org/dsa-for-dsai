@@ -1,8 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from time import time
 
 x = np.logspace(0,15,100,dtype=np.float128)
 
+start = time()
 y_1 = np.ones(100)
 y_n = x
 y_square = x*x
@@ -10,6 +12,7 @@ y_squareroot = np.sqrt(x)
 y_nlogn = x*np.log(x)
 y_cube = x**3
 y_2n = 2**x
+taken = time() - start
 
 
 fig = plt.figure()
@@ -29,3 +32,4 @@ p.plot(x,y_2n,label='2^n')
 # Add a legend
 plt.legend()
 plt.show()
+print("Time taken:", taken)
